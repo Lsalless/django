@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card border-danger">
+    <div class="card-body">
+      <h2 class="card-title text-danger">Confirmar exclusão</h2>
+      <p>Tem certeza que deseja excluir o alimento: <strong>{{ alimento.nome }}</strong>?</p>
+      <form method="post" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, excluir</button>
+        <a href="{% url 'alimento_list' %}" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

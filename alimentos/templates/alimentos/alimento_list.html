@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Lista de Alimentos</h2>
+    <a href="{% url 'alimento_create' %}" class="btn btn-success">Novo Alimento</a>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Nome</th>
+        <th>Peso</th>
+        <th>Quantidade</th>
+        <th>Preço por Unidade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for alimento in alimentos %}
+      <tr>
+        <td>{{ alimento.nome }}</td>
+        <td>{{ alimento.peso }}</td>
+        <td>{{ alimento.quantidade }}</td>
+        <td>{{ alimento.preco_por_unidade }}</td>
+        <td>
+          <a href="{% url 'alimento_update' alimento.pk %}" class="btn btn-primary btn-sm">Editar</a>
+          <a href="{% url 'alimento_delete' alimento.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="5" class="text-center">Nenhum alimento cadastrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
