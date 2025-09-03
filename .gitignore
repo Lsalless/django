@@ -144,6 +144,9 @@ venv.bak/
 .spyderproject
 .spyproject
 
+__pycache__/
+*.pyc
+
 # Rope project settings
 .ropeproject
 
